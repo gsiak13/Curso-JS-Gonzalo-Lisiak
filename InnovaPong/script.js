@@ -19,20 +19,16 @@ const sumarParticipante = () => {
         }else{
             alert("el participante ya se encuentra participando del torneo.")
         }
+        elegirOpcion()
 }
 
 //agregar la cantidad de participantes que se desee
-function agregarParticipante(){
-    //let cantidadParticipantes = parseInt(prompt("cuantos participantes quiere agregar?"));
-    //for(let i = 0 ; i<cantidadParticipantes; i++){
-        sumarParticipante();
-    //}
-}
 
 const mostrarParticipantes = () => {
     for (const participante of participantes) {
         console.table(participante)
     }
+    elegirOpcion()
 }
    
 //verificar si un participante ya es parte del torneo
@@ -69,9 +65,22 @@ function jugarPartido(){
     }else{
         console.log("es empate")
     }
+    elegirOpcion()
 }
 
-// agregarParticipante()
-// mostrarParticipantes()
-// jugarPartido()
+function elegirOpcion(){
+let menu = parseInt(prompt("1- Agregar un jugador \n 2- Mostrar jugadores \n 3- Jugar Partido"))
 
+switch(menu){
+    case 1: sumarParticipante();
+    break;
+    case 2: mostrarParticipantes();
+    break;
+    case 3: jugarPartido();
+    break;
+    default: alert("no es una opcion valida;")
+    elegirOpcion()
+}
+}
+
+elegirOpcion()
