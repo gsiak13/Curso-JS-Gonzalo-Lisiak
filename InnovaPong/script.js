@@ -1,7 +1,7 @@
 const participantes = []
 
 
-
+//crea un jugador con su nombre y apellido
 const crearJugador = () => {
     const nombre = prompt("ingrese el nombre del participante");
     const apellido = prompt("ingrese el apellido del participante");
@@ -10,7 +10,7 @@ const crearJugador = () => {
 }
 
 
-
+//Agrega un participante al torneo
 const sumarParticipante = () => {
     const jugador = crearJugador();
     if(!existeParticipante(jugador)){
@@ -22,8 +22,7 @@ const sumarParticipante = () => {
         elegirOpcion()
 }
 
-//agregar la cantidad de participantes que se desee
-
+//Muestra los participantes por consola
 const mostrarParticipantes = () => {
     for (const participante of participantes) {
         console.table(participante)
@@ -44,7 +43,7 @@ function existeParticipante(jugador){
     return existe;
 }
 
-//no funciona bien. pedir ayuda
+// ingresar datos y puntos de 2 jugadores, indica quien gano. En un futuro agregara puntos a cada jugador.
 function jugarPartido(){
     let jugador1 
     let jugador2 
@@ -68,8 +67,9 @@ function jugarPartido(){
     elegirOpcion()
 }
 
+// Menu de seleccion
 function elegirOpcion(){
-let menu = parseInt(prompt("1- Agregar un jugador \n 2- Mostrar jugadores \n 3- Jugar Partido"))
+let menu = parseInt(prompt("1- Agregar un jugador \n 2- Mostrar jugadores \n 3- Jugar Partido \n 4- Salir"))
 
 switch(menu){
     case 1: sumarParticipante();
@@ -78,7 +78,9 @@ switch(menu){
     break;
     case 3: jugarPartido();
     break;
-    default: alert("no es una opcion valida;")
+    case 4: alert("Hasta la proxima!");
+    break;
+    default: alert("no es una opcion valida;");
     elegirOpcion()
 }
 }
